@@ -1,0 +1,48 @@
+@import './js/view/DynamicSheet.scss';
+@import './js/view/NavMenu.scss';
+@import './js/view/ShowCase.scss';
+
+.right {
+  text-align: right;
+}
+.left {
+  text-align: left;
+}
+i {
+  cursor: pointer;
+}
+
+:root {
+  --blue:#64b5f6;
+  --dark-blue:#2286c3;
+  --light-blue:#9be7ff;
+
+  --red:#ef5350;
+  --dark-red: #ff867c;
+  --light-red: #b61827;
+
+  --teal:#009688;
+  --dark-teal: #52c7b8;
+  --light-teal: #00675b;
+
+  --green:#00c853;
+  --dark-green: #5efc82;
+  --light-green: #009624;
+
+  --yellow:#ffeb3b;
+  --dark-yellow: #ffff72;
+  --light-yellow: #c8b900;
+
+  --red:#ff3d00;
+  --dark-red: #c30000;
+  --light-red: #ff7539;
+
+  --gray:#455a64;
+  --dark-gray: #1c313a;
+  --light-gray: #718792;
+}
+
+
+* {
+  transition-duration: 0.4s;
+}
