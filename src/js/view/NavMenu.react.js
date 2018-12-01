@@ -10,7 +10,7 @@ export default @observer class NavMenu extends React.Component {
     return (
       <div className={`NavMenu ${UIState.menu ? "open" : ""}`}>
         <div className="right section">
-          { UIState.menu && <i className="material-icons" onClick={this._toggleMenu}>account_box</i> }
+          { UIState.menu && <i className="material-icons">account_box</i> }
           <i className="material-icons" onClick={this._toggleMenu}>menu</i>
         </div>
 

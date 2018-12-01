@@ -1,0 +1,16 @@
+.Input {
+  display: flex;
+  flex-direction: column;
+
+  &.disabled {
+    
+  }
+
+  &.focused {
+
+  }
+
+  >.placeholder {
+
+  }
+}
