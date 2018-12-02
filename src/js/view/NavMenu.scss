@@ -1,21 +1,30 @@
 .NavMenu {
-  position: fixed;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  width: 1.5rem;
-  background-color: var(--blue);
-  padding: 0.5rem;
+  .relevant {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 1.5rem;
+    background-color: var(--blue);
+    padding: 0.5rem;
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    .section {
 
-  display: flex;
-  flex-direction: column;
-
+    }
+  }
   &.open {
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    z-index: 10;
+  }
+  &.open .relevant {
+    z-index: 11;
     max-width: 50vw;
     width: 20rem;
-  }
-
-  .section {
-    
   }
 }

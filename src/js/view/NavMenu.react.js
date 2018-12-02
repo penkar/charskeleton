@@ -7,16 +7,21 @@ import UIState from '../state/UIState';
 
 export default @observer class NavMenu extends React.Component {
   render() {
+    const menu = UIState.menu;
     return (
-      <div className={`NavMenu ${UIState.menu ? "open" : ""}`}>
-        <div className="right section">
-          { UIState.menu && <i className="material-icons">account_box</i> }
-          <i className="material-icons" onClick={this._toggleMenu}>menu</i>
-        </div>
+      <div
+        className={`NavMenu ${menu ? "open" : ""}`}
+        onClick={() => (menu && this._toggleMenu())}>
+        <div className="relevant">
+          <div className="right section">
+            { menu && <i className="material-icons">account_box</i> }
+            <i className="material-icons" onClick={this._toggleMenu}>menu</i>
+          </div>
 
-        { UIState.menu && this.props.children }
+          { menu && this.props.children }
+        </div>
       </div>
     )
   }
-  _toggleMenu(){UIState.menu = !UIState.menu}
+  _toggleMenu(){ UIState.menu = !UIState.menu; }
 }
