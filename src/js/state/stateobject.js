@@ -1,4 +1,9 @@
 const stateobject = [{
+  width:5,
+  category:'basicinfo',
+  maptype:'InputFieldContainer',
+  standardwidth:'fifth',
+  alignment:'row',
   data:[{
     placeholder:"Character Name",
     value:"Light Scratch",
@@ -30,10 +35,48 @@ const stateobject = [{
     placeholder:"DCI Number",
     id:"dci",
   }],
+},{
   width:5,
-  category:'basicinfo',
-  maptype:'InputFieldContainer',
+  category:'abilities',
+  maptype:'ValueAndModifiableRange',
   standardwidth:'fifth',
   alignment:'row',
+  data:[{
+    title:"Strength",
+    value:10,
+    modifier:null,
+    specialized:false,
+    formula:"Math.floor((X - 10) / 2)",
+  },{
+    title:"Dexterity",
+    value:10,
+    modifier:null,
+    specialized:false,
+    formula:"Math.floor((X - 10) / 2)",
+  },{
+    title:"Constitution",
+    value:10,
+    modifier:null,
+    specialized:false,
+    formula:"Math.floor((X - 10) / 2)",
+  },{
+    title:"Intelligence",
+    value:10,
+    modifier:null,
+    specialized:false,
+    formula:"Math.floor((X - 10) / 2)",
+  },{
+    title:"Wisdom",
+    value:10,
+    modifier:null,
+    specialized:false,
+    formula:"Math.floor((X - 10) / 2)",
+  },{
+    title:"Charisma",
+    value:10,
+    modifier:null,
+    specialized:false,
+    formula:"Math.floor((X - 10) / 2)",
+  }]
 }]
 export default stateobject;

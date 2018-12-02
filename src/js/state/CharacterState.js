@@ -5,22 +5,32 @@ const preprocessArray = (array) => {
   return array.map(({data, width, alignment, category, maptype, standardwidth}, index) => {
     switch (maptype) {
       case 'InputFieldContainer':
-      default:
         data = data.map(({placeholder, value, disabled, classes, id, suggestions, raiseLabel}, idx) => ({
           placeholder:placeholder||"",
           value:value||"",
-          disabled:disabled||false,
           classes:classes||"",
+          disabled:disabled||false,
+          raiseLabel:raiseLabel||true,
           id:id||`${category}_${idx}`,
           suggestions:suggestions||[],
-          raiseLabel:raiseLabel||true,
-          classes:classes||""
+        }));
+        break;
+      case 'ValueAndModifiableRange':
+      default:
+        data = data.map(({title, value, modifier, specialized, formula, classes, id}, idx) => ({
+          title:title||"",
+          classes:classes||"",
+          specialized:specialized||"",
+          formula:formula||"",
+          value:value||10,
+          modifier:modifier||null,
+          specialized:specialized||false,
+          id:id||`${category}_${idx}`,
         }));
         break;
     }
     return ({data, width, alignment, category, maptype, standardwidth});
-  })
-
+  });
 }
 
 class CharacterState {
@@ -30,8 +40,8 @@ class CharacterState {
     this.characterInfo = preprocessArray(stateobject);
   }
 
-  @action update = (value, idx, category) => {
-    this.characterInfo.find(char => char.category === category).data[idx].value = value;
+  @action update = (value, idx, category, field) => {
+    this.characterInfo.find(char => char.category === category).data[idx][field] = value;
   }
 }
 const CharacterStateInst = new CharacterState

@@ -52,10 +52,10 @@ export default @observer class Input extends React.Component<Props, State> {
   _onBlur = () => setTimeout(()=>this._onFocus(false), 200);
   _click = (value) => {
     const {category, index, disabled} = this.props;
-    CharacterState.update(value, index, category);
+    CharacterState.update(value, index, category, 'value');
   }
   _changeValue = ({target}) => {
     const {category, index, disabled} = this.props;
-    if(!disabled) CharacterState.update(target.value, index, category);
+    if(!disabled) CharacterState.update(target.value, index, category, 'value');
   }
 }
