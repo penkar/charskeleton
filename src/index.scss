@@ -35,16 +35,17 @@ i {
   --dark-yellow: #ffff72;
   --light-yellow: #c8b900;
 
-  --red:#ff3d00;
-  --dark-red: #c30000;
-  --light-red: #ff7539;
+  --primary:#512da8;
+  --dark-primary: #140078;
+  --light-primary: #8559da;
 
   --gray:#455a64;
   --dark-gray: #1c313a;
   --light-gray: #718792;
 }
 
-
+textarea, select, input, button { outline: none; }
 * {
+  font-family: sans-serif;
   transition-duration: 0.4s;
 }
