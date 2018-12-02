@@ -1,24 +1,15 @@
-import {observable, action} from 'mobx'
-
-const props = {
-  disabled:false,
-  placeholder:"Placeholder",
-  callback:(textvalue, id, category)=> {},
-  id:"ID0001",
-  category:"ID fields",
-  value:"Checkob",
-  suggestions:[],
-  raiseLabel:true,
-  classes:"",
-  width:"third",
-}
+import {observable, action} from 'mobx';
+import stateobject from './stateobject';
 
 class CharacterState {
   @observable name:String = "";
-  @observable props:Object = props;
+  @observable characterInfo:Array = [];
+  constructor() {
+    this.characterInfo = stateobject;
+  }
 
-  @action update = (value, id, category) => {
-    this.props.value = value;
+  @action update = (value, idx, category) => {
+    this.characterInfo.find(char => char.category === category).data[idx].value = value;
   }
 }
 const CharacterStateInst = new CharacterState

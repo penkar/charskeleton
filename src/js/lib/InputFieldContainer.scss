@@ -1,0 +1,11 @@
+.InputFieldContainer {
+  display: flex;
+  flex-direction: column;
+  .container.row {
+    display: flex;
+    flex-direction: row;
+  }
+  .container.col {display: flex;
+    flex-direction: column;
+  }
+}
