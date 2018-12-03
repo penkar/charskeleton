@@ -2,7 +2,15 @@ import React from 'react';
 import ValueAndModifiable from './ValueAndModifiable';
 import {observer} from 'mobx-react';
 
-export default @observer class ValueAndModifiableRange extends React.Component {
+type Props = {
+  width:Number,
+  alignment:String,
+  data:String,
+  category:String,
+  standardwidth:String,
+}
+
+export default @observer class ValueAndModifiableRange extends React.Component<Props> {
   render() {
     const {width, alignment, data} = this.props;
     const rows = [];

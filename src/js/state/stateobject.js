@@ -36,7 +36,7 @@ const stateobject = [{
     id:"dci",
   }],
 },{
-  width:5,
+  width:6,
   category:'abilities',
   maptype:'ValueAndModifiableRange',
   standardwidth:'fifth',
@@ -77,6 +77,23 @@ const stateobject = [{
     modifier:null,
     specialized:false,
     formula:"Math.floor((X - 10) / 2)",
+  }]
+},{
+  width:2,
+  category:'inspirations',
+  maptype:'KeyValues',
+  standardwidth:'fifth',
+  alignment:'col',
+  data:[{
+    fieldtype:'number',
+    title:"Inspiration",
+    value:0,
+    id:"inspiration",
+  },{
+    fieldtype:'number',
+    title:"Proficiency",
+    value:0,
+    id:"proficiency",
   }]
 }]
 export default stateobject;

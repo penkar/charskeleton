@@ -1,9 +1,7 @@
-//@flow
+// @flow
 import React from 'react';
 import {observer} from 'mobx-react';
-
 import UIState from '../state/UIState';
-
 
 export default @observer class NavMenu extends React.Component {
   render() {
@@ -11,7 +9,7 @@ export default @observer class NavMenu extends React.Component {
     return (
       <div
         className={`NavMenu ${menu ? "open" : ""}`}
-        onClick={() => (menu && this._toggleMenu())}>
+        onClick={() => (menu && this._toggleMenu({}))}>
         <div className="relevant">
           <div className="right section">
             { menu && <i className="material-icons">account_box</i> }
@@ -23,5 +21,8 @@ export default @observer class NavMenu extends React.Component {
       </div>
     )
   }
-  _toggleMenu(){ UIState.menu = !UIState.menu; }
+  _toggleMenu(e){
+    e.stopPropagation && e.stopPropagation();
+    UIState.menu = !UIState.menu;
+  }
 }

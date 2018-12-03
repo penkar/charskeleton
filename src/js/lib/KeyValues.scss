@@ -1,0 +1,9 @@
+.KeyValues {
+  display: inline-flex;
+  .col {
+    flex-direction: column;
+  }
+  .row {
+    flex-direction: row;
+  }
+}

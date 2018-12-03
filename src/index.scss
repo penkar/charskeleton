@@ -43,6 +43,12 @@ i {
   --dark-gray: #1c313a;
   --light-gray: #b2bfc5
 }
+body, html {margin: 0px; padding: 0px;}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 textarea, select, input, button { outline: none; }
 * {

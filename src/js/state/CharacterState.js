@@ -15,6 +15,15 @@ const preprocessArray = (array) => {
           suggestions:suggestions||[],
         }));
         break;
+      case 'KeyValues':
+        data = data.map(({fieldtype, title, value, classes, id}, idx) => ({
+          fieldtype:fieldtype||"text",
+          title:title||"",
+          classes:classes||"",
+          value:value||0,
+          id:id||`${category}_${idx}`,
+        }));
+        break;
       case 'ValueAndModifiableRange':
       default:
         data = data.map(({title, value, modifier, specialized, formula, classes, id}, idx) => ({

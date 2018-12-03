@@ -4,13 +4,13 @@ import CharacterState from '../state/CharacterState';
 
 type Props = {
   title:String,
-  value:10,
-  modifier:null,
+  value:Number,
+  modifier:Any,
   specialized:Boolean,
   formula:String,
 }
 
-export default class ValueAndModifiable extends React.Component {
+export default class ValueAndModifiable extends React.Component<Props, {}> {
   render() {
     const {title, value, modifier, specialized, formula} = this.props;
     return (
@@ -18,17 +18,19 @@ export default class ValueAndModifiable extends React.Component {
         <div className="title">{title}</div>
         <div className="value">
           <input
+            type="number"
             onChange={this._valueChange}
             value={value}></input>
         </div>
         <div className={`modifier ${modifier === null ? "null" : ""}`}>
           <input
+            type="number"
             onChange={this._modChange}
             value={modifier || eval(formula.replace('X', value))}/>
         </div>
         <div className="specialized">{specialized}</div>
       </div>
-    )
+    );
   }
   _modChange = ({target}) => {
     const {value} = target, {category, index, disabled} = this.props;
