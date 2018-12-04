@@ -9,7 +9,7 @@ export default @observer class KeyValue extends React.Component {
   }
   render() {
     return (
-      <div className="KeyValue">
+      <div className={`KeyValue ${this.props.classes}`}>
         <div className="title">{this.props.title}</div>
         <div className={`value ${this.state.focused ? "focused" : ""}`}>
           <input
