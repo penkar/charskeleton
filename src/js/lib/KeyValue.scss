@@ -1,6 +1,4 @@
 .KeyValue {
-  // display: flex;
-  // align-items: center;
   margin:4px;
   width: 5rem;
   position: relative;
@@ -17,6 +15,7 @@
     width: 100%;
     top: -8px;
     input {
+      background: transparent;
       font-family: monospace;
       width: 4ch;
       border: 0px;

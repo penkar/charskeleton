@@ -28,6 +28,7 @@
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "css-loader": "^1.0.1",
     "material-icons": "^0.2.3",
     "mobx": "^5.6.0",
