@@ -1,8 +1,20 @@
 import React from 'react';
 import cn from 'classnames';
 import CharacterState from '../../state/CharacterState';
-export default class RadioInput extends React.Component {
-  constructor(props) {super(props);this.state={checked:true}}
+type Props = {
+  value:Boolean,
+  idx:String,
+  category:String,
+  field:String,
+}
+type State = {
+  checked:Boolean,
+}
+
+export default class RadioInput extends React.Component<Props, State> {
+  constructor(props:Object) {
+    super(props);this.state={checked:true}
+  }
   render() {
     return (
       <div className="RadioInput">

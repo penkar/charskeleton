@@ -7,7 +7,7 @@ type Props = {
 }
 
 export default class CheckBox extends React.Component {
-  constructor(props) {
+  constructor(props:Object) {
     super(props)
     this.state={selected:true}
   }

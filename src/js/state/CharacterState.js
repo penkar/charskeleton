@@ -1,7 +1,8 @@
+// @flow
 import {observable, action} from 'mobx';
 import stateobject from './stateobject';
 
-const preprocessArray = (array) => {
+const preprocessArray = (array:Array<Any>):Array => {
   return array.map(({data, width, alignment, category, maptype, standardwidth}, index) => {
     switch (maptype) {
       case 'InputFieldContainer':
@@ -25,7 +26,6 @@ const preprocessArray = (array) => {
         }));
         break;
       case 'ValueAndModifiableRange':
-      default:
         data = data.map(({title, value, modifier, specialized, formula, classes, id}, idx) => ({
           title:title||"",
           classes:classes||"",
@@ -36,6 +36,10 @@ const preprocessArray = (array) => {
           specialized:specialized||false,
           id:id||`${category}_${idx}`,
         }));
+        break;
+      case 'VariableInputsRange':
+      default:
+        console.log(data);
         break;
     }
     return ({data, width, alignment, category, maptype, standardwidth});

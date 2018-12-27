@@ -1,10 +1,13 @@
 import CheckBox from './CheckBox';
+import LongInput from './LongInput';
+import RadioInput from './RadioInput';
+import ShortInput from './ShortInput';
 import VariableInputs from './VariableInputs';
-import VariableInputsRange from './VariableInputsRange';
 
 const Components = {
   CheckBox,
+  RadioInput,
+  ShortInput,
   VariableInputs,
-  VariableInputsRange,
 }
 export default Components;

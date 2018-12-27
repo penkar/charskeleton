@@ -1,8 +1,8 @@
 const stateobject = [{
   width:5,
+  standardwidth:'fifth',
   category:'basicinfo',
   maptype:'InputFieldContainer',
-  standardwidth:'fifth',
   alignment:'row',
   data:[{
     placeholder:"Character Name",
@@ -37,9 +37,9 @@ const stateobject = [{
   }],
 },{
   width:6,
+  standardwidth:'fifth',
   category:'abilities',
   maptype:'ValueAndModifiableRange',
-  standardwidth:'fifth',
   alignment:'row',
   data:[{
     title:"Strength",
@@ -94,6 +94,30 @@ const stateobject = [{
     title:"Proficiency",
     value:0,
     id:"proficiency",
+  }]
+},{
+  width:3,
+  standardwidth:'fifth',
+  category:'abilities',
+  maptype:'VariableInputsRange',
+  alignment:'col',
+  data:[{
+    fields:[{
+      field:'CheckBox',
+      value:'checked',
+    },{
+      field:'RadioInput',
+      value:'value',
+      placeholder:'placeholder',
+    },{
+      field:'Label',
+      value:'Strength',
+    }],
+    checked:false,
+    title:"Strength",
+    value:0,
+    placeholder:'',
+    id:"inspiration",
   }]
 }]
 export default stateobject;
