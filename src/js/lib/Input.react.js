@@ -17,8 +17,8 @@ type State = {
   focused:Boolean
 }
 
-export default @observer class Input extends React.Component<Props, State> {
-  constructor(props:Object) {
+@observer class Input extends React.Component<Props, State> {
+  constructor(props) {
     super(props);
     this.state = {focused:false};
   }
@@ -39,7 +39,7 @@ export default @observer class Input extends React.Component<Props, State> {
     );
   }
   _createSuggestions = (suggestions:Array<String>) => {
-    if(!suggestions.length) return null;
+    if(!suggestions || !suggestions.length) return null;
     return (
       <div className="suggestions">
         { suggestions.map((suggestion, index) =>
@@ -59,3 +59,15 @@ export default @observer class Input extends React.Component<Props, State> {
     if(!disabled) CharacterState.update(target.value, index, category, 'value');
   }
 }
+
+Input.defaultProps = {
+  placeholder:"",
+  value:"",
+  classes:"",
+  disabled:false,
+  raiseLabel:true,
+  id:``,
+  suggestions:[],
+}
+
+export default Input

@@ -1,10 +1,11 @@
 import React from 'react';
 import {observer} from 'mobx-react';
 import Input from './Input';
+
 type Props = {
   category:String,
 }
-export default @observer class InputFieldContainer extends React.Component<Props, {}> {
+export default @observer class InputFieldContainer extends React.Component<Props> {
   render() {
     const {width, alignment, data} = this.props;
     const rows = [];

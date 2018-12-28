@@ -28,7 +28,7 @@ export default @observer class ValueAndModifiableRange extends React.Component<P
       </div>
     )
   }
-  _createInput = (field, index) => {
+  _createInput = (field:String, index:String) => {
     const {category, standardwidth} = this.props;
     return <ValueAndModifiable {...field} width={standardwidth} key={index} category={category} index={index}/>
   }
