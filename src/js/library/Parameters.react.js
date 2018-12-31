@@ -18,7 +18,7 @@ export default class Parameters extends React.Component<Props> {
         <div>
           <pre>
             <code>
-              { JSON.stringify(this.props.jsonStructure) }
+              { JSON.stringify(this.props.jsonStructure, null, 2) }
             </code>
           </pre>
         </div>

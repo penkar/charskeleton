@@ -2,7 +2,7 @@ import React from 'react';
 import {observer} from 'mobx-react';
 import KeyValue from './KeyValue';
 
-export default @observer class KeyValues extends React.Component {
+@observer class KeyValues extends React.Component {
   render() {
     const {alignment, standardwidth, data, width} = this.props, rows = [];
     for(let i = 0; i < data.length; i+= width) {
@@ -30,3 +30,11 @@ export default @observer class KeyValues extends React.Component {
     )
   }
 }
+KeyValues.defaultProps = {
+  fieldtype:"text",
+  title:"",
+  classes:"",
+  value:0,
+  id:"keyavlues",
+}
+export default KeyValues;

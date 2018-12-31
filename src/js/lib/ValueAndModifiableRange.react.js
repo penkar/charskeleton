@@ -10,7 +10,7 @@ type Props = {
   standardwidth:String,
 }
 
-export default @observer class ValueAndModifiableRange extends React.Component<Props> {
+@observer class ValueAndModifiableRange extends React.Component<Props> {
   render() {
     const {width, alignment, data} = this.props;
     const rows = [];
@@ -33,3 +33,14 @@ export default @observer class ValueAndModifiableRange extends React.Component<P
     return <ValueAndModifiable {...field} width={standardwidth} key={index} category={category} index={index}/>
   }
 }
+ValueAndModifiableRange.defaulProps = {
+  title:"",
+  classes:"",
+  specialized:"",
+  formula:"",
+  value:10,
+  modifier:null,
+  specialized:false,
+  id:"valueandmodifiablerange",
+}
+export default ValueAndModifiableRange
