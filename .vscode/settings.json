@@ -1,0 +1,10 @@
+{
+  "flow.pathToFlow":"${workspaceRoot}/node_modules/.bin/flow",
+  "flow.stopFlowOnExit":true,
+  "flow.enabled":true,
+  "flow.showStatus":true,
+  "flow.showUncovered":true,
+  "flow.runOnEdit":false,
+  "flow.runOnAllFiles":false,
+  "flow.useLSP":true
+}

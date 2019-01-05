@@ -3,24 +3,25 @@ import React from 'react';
 import {observer} from 'mobx-react';
 import CharacterState from '../state/CharacterState';
 type Props = {
-  suggestions:Array,
-  disabled:Boolean,
-  raiseLabel:Boolean,
-  category:String,
-  classes:String,
-  id:String,
-  placeholder:String,
-  value:String,
-  width:String,
+  suggestions:Array<string>,
+  disabled:boolean,
+  raiseLabel:boolean,
+  category:string,
+  classes:string,
+  id:string,
+  index:number,
+  placeholder:string,
+  value:string,
+  width:string,
 }
 type State = {
-  focused:Boolean
+  focused:boolean
 }
 
 @observer class Input extends React.Component<Props, State> {
-  constructor(props) {
+  constructor(props:Object) {
     super(props);
-    this.state = {focused:false};
+    this.state = {focused:'false'};
   }
   render() {
     const {classes, value, placeholder, disabled, raiseLabel, width, suggestions} = this.props, {focused} = this.state;
@@ -38,7 +39,7 @@ type State = {
       </div>
     );
   }
-  _createSuggestions = (suggestions:Array<String>) => {
+  _createSuggestions = (suggestions:Array<string>) => {
     if(!suggestions || !suggestions.length) return null;
     return (
       <div className="suggestions">
@@ -48,13 +49,13 @@ type State = {
       </div>
     );
   }
-  _onFocus = (focused = true) => this.setState({focused});
+  _onFocus = (focused:boolean = true) => this.setState({focused});
   _onBlur = () => setTimeout(()=>this._onFocus(false), 200);
-  _click = (value) => {
+  _click = (value:string) => {
     const {category, index, disabled} = this.props;
     CharacterState.update(value, index, category, 'value');
   }
-  _changeValue = ({target}) => {
+  _changeValue = ({target}:Object) => {
     const {category, index, disabled} = this.props;
     if(!disabled) CharacterState.update(target.value, index, category, 'value');
   }
