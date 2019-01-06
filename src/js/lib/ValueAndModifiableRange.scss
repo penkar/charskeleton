@@ -4,3 +4,45 @@
 
   }
 }
+
+.ValueAndModifiable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 5rem;
+  position: relative;
+  height: 4rem;
+
+  input {
+    font-family: monospace;
+    font-size: 1rem;
+    width: 3ch;
+    border: 0px;
+    background-color: transparent;
+  }
+  .title {
+    font-size: 12px;
+    position: absolute;
+    top: 0px;
+    text-transform: uppercase;
+    color: var(--primary);
+  }
+  .value {
+    border: 1px solid black;
+    width: 3ch;
+    padding: 0px  8px 4px;;
+    position: absolute;
+    top: 12px;
+  }
+  .modifier {
+    &.null {
+      background-color: var(--light-gray);
+    }
+    border-radius: 50%;
+    border: solid 1px black;
+    padding: 2px 8px;
+    position: relative;
+    top: 31px;
+    background: white;
+  }
+}

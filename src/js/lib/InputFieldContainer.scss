@@ -11,3 +11,93 @@
     flex-direction: column;
   }
 }
+
+
+.Input {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: solid 1px black;
+  margin: 6px;
+
+  &.full {width: 80vw;}
+  &.half {width: 40vw;}
+  &.third {width: 22vw;}
+  &.fifth {width: 14vw;}
+
+  &.disabled {
+    background-color: var(--light-gray);
+  }
+  &:after {
+    display:block;
+    content: '';
+    border-bottom: solid 3px var(--dark-primary);
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+  &.focused {
+    border-left: solid 3px var(--dark-primary);
+  }
+  &.focused:after {
+    transform: scaleX(1);
+    transform-origin: 0% 50%;
+  }
+  >.label {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
+  &.active >.placeholder {
+    font-size: 10px;
+    top: -6px;
+  }
+  >.placeholder {
+    z-index: 2;
+    position: absolute;
+    font-size: 12px;
+    top: 4px;
+    left:8px;
+    background: white;
+    padding: 0px 2px;
+    color: var(--primary);
+  }
+  &.active >input {
+    z-index: 1;
+  }
+  >input {
+    z-index: 3;
+    font-size: 16px;
+    border: 0px;
+    padding: 4px 8px;
+    background: transparent;
+  }
+  &.focused >.suggestions {
+    display: table;
+    z-index: 6;
+    .suggestion{
+      display: flex;
+    }
+  }
+  > .suggestions {
+    z-index: 3;
+    overflow-y: scroll;
+    max-height: 5rem;
+    width: calc(100% - 2px);
+    position: absolute;
+    background: var(--light-gray);
+    top: 34px;
+    left: 0px;
+    height: 0px;
+
+    >.suggestion {
+      display: none;
+      z-index: 5;
+      padding: 0px 8px;
+      cursor: pointer;
+      &:hover {
+        color:white;
+        background-color: var(--gray);
+      }
+    }
+  }
+}

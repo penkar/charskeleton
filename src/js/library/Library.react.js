@@ -5,6 +5,7 @@ import Parameters from './Parameters';
 import CharacterState from '../state/CharacterState';
 import NavMenu from '../view/NavMenu';
 import InputFieldContainer from '../lib/InputFieldContainer';
+import TextAreas from '../lib/TextAreas';
 import ValueAndModifiableRange from '../lib/ValueAndModifiableRange';
 import KeyValues from '../lib/KeyValues';
 
@@ -38,6 +39,8 @@ export default class Library extends React.Component<{}, State> {
 
   _swapKey = (key:string) => {
     switch (key) {
+      case 'textareas':
+        CharacterState.setLibraryCharacterInfo(textareas); break;
       case 'input':
         CharacterState.setLibraryCharacterInfo(input); break;
       case 'keyvalues':
@@ -53,18 +56,15 @@ export default class Library extends React.Component<{}, State> {
     let content, title;
     const charprops = CharacterState.getLibraryCharacterInfo;
     switch (this.state.key) {
+      case "textareas":
+        content = <TextAreas {...charprops}/>, title = "Text Areas"; break;
       case "input":
-        content = <InputFieldContainer {...charprops}/>, title = "Input";
-        break;
+        content = <InputFieldContainer {...charprops}/>, title = "Input"; break;
       case "valueandmodifiable":
-        content = <ValueAndModifiableRange {...charprops}/>, title = "Value Modifiable";
-        break;
+        content = <ValueAndModifiableRange {...charprops}/>, title = "Value Modifiable"; break;
       case "keyvalues":
-        content = <KeyValues {...charprops}/>, title = "Value Modifiable";
-        break;
       default:
-        content = null, title = null;
-        break;
+        content = <KeyValues {...charprops}/>, title = "Value Modifiable"; break;
     }
 
     return (
@@ -76,7 +76,30 @@ export default class Library extends React.Component<{}, State> {
 }
 
 
-const input = {
+const textareas = {
+  maptype:'TextAreas', /* */
+  width:5, /* */
+  standardwidth:'fifth',  /* */
+  category:'textareas',
+  alignment:'row',
+  data:[{
+    title:'Personality Traits',
+    placeholder:'',
+    value:'Vitae urna non lectus quis tellus ultricies, ac mi et, massa ipsum integer urna vestibulum. Porta turpis, tempus convallis lectus ullamcorper. Cursus pulvinar sit, id turpis.',
+  },{
+    title:'Ideals',
+    placeholder:'',
+    value:'Elementum turpis, praesent elit, porttitor sollicitudin congue, nulla vel, vestibulum vehicula amet neque. Vel aenean ac mauris libero. Varius elementum, integer lacus donec elit, suscipit morbi rhoncus.',
+  },{
+    title:'Bonds',
+    placeholder:'',
+    value:'Justo suscipit nulla, maecenas nulla sed nostra massa. Congue ut, aut lacinia id, lectus orci phasellus porta vivamus quam maecenas, sit nonummy fermentum libero urna adipiscing amet.',
+  },{
+    title:'Flaws',
+    placeholder:'',
+    value:'Elit urna vivamus pretium, pede mauris a, elit dui elit odio. Ullamcorper integer urna nostra ad pharetra eget, ligula velit odio et torquent nec dignissim, quisque curabitur nunc in laoreet urna, feugiat tristique quis nulla. Enim ac.',
+  },],
+}, input = {
   maptype:'InputFieldContainer', /* Name of the Field that will be used (Will point to sub Inputs.) */
   width:5, /* How many fields will appear in one row or column. */
   standardwidth:'fifth', /* TODO: Make something more extensible than set CSS for widths. */

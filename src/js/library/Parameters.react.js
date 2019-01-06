@@ -5,7 +5,6 @@ import CharacterState from '../state/CharacterState';
 type Props = {
   children:Element,
   title:String,
-  // jsonStructure:Object,
 }
 
 export default class Parameters extends React.Component<Props> {
