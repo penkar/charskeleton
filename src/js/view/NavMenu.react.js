@@ -24,8 +24,8 @@ export default @observer class NavMenu extends React.Component<Props> {
       </div>
     );
   }
-  _toggleMenu({stopPropagation}:Object){
-    stopPropagation && stopPropagation();
+  _toggleMenu(event:Object){
+    event.stopPropagation && event.stopPropagation();
     UIState.menu = !UIState.menu;
   }
 }

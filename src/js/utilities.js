@@ -1,5 +1,6 @@
+// @flow
 function hashToJson():Object {
-  const hashState:Object = new Object, hash:String = window.location.hash
+  const hashState:Object = new Object, hash:string = window.location.hash
 
     hash.slice(1, hash.length)
     .split("&")

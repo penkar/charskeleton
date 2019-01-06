@@ -5,12 +5,12 @@ import Input from './Input';
 
 type Props = {
   alignment:string,
-  category:String,
+  category:string,
   data:Array<Object>,
   standardwidth:string,
   width:string,
 }
-export default @observer class InputFieldContainer extends React.Component<Props> {
+@observer class InputFieldContainer extends React.Component<Props> {
   render() {
     const {width, alignment, data} = this.props;
     const rows = [];
@@ -28,8 +28,17 @@ export default @observer class InputFieldContainer extends React.Component<Props
       </div>
     )
   }
-  _createInput = (field, index:number) => {
+  _createInput = (field:Object, index:number) => {
     const {category, standardwidth} = this.props;
     return <Input {...field} width={standardwidth} key={index} category={category} index={index}/>
   }
 }
+InputFieldContainer.defaultProps = {
+  alignment:"",
+  category:"",
+  data:[],
+  standardwidth:"",
+  width:"",
+}
+
+export default InputFieldContainer

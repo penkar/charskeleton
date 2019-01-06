@@ -1,12 +1,16 @@
+// @flow
 import React from 'react';
 import cn from 'classnames';
 type Props = {
   callback:Function,
-  value:String,
-  id:String,
+  id:string,
+  value:string,
+}
+type State = {
+  selected:boolean,
 }
 
-export default class CheckBox extends React.Component {
+export default class CheckBox extends React.Component<Props, State> {
   constructor(props:Object) {
     super(props)
     this.state={selected:true}

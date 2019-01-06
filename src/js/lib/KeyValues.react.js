@@ -41,6 +41,7 @@ type Props = {
 }
 KeyValues.defaultProps = {
   category:'',
+  data:[],
   fieldtype:"text",
   title:"",
   classes:"",
