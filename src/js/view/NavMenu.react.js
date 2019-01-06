@@ -2,8 +2,11 @@
 import React from 'react';
 import {observer} from 'mobx-react';
 import UIState from '../state/UIState';
+type Props = {
+  children:Object,
+}
 
-export default @observer class NavMenu extends React.Component {
+export default @observer class NavMenu extends React.Component<Props> {
   render() {
     const menu = UIState.menu;
     return (
@@ -19,10 +22,10 @@ export default @observer class NavMenu extends React.Component {
           { menu && this.props.children }
         </div>
       </div>
-    )
+    );
   }
-  _toggleMenu(e){
-    e.stopPropagation && e.stopPropagation();
+  _toggleMenu({stopPropagation}:Object){
+    stopPropagation && stopPropagation();
     UIState.menu = !UIState.menu;
   }
 }

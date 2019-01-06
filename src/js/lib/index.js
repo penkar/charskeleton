@@ -1,3 +1,4 @@
+// @flow
 import Input from './Input';
 import InputFieldContainer from './InputFieldContainer';
 import KeyValue from './KeyValue';

@@ -1,8 +1,17 @@
+// @flow
 import React from 'react';
 import {observer} from 'mobx-react';
 import KeyValue from './KeyValue';
+type Props = {
+  alignment:string,
+  category:string,
+  data:Array<Object>,
+  width:string,
+  standardwidth:string,
+  value:number,
+}
 
-@observer class KeyValues extends React.Component {
+@observer class KeyValues extends React.Component<Props> {
   render() {
     const {alignment, standardwidth, data, width} = this.props, rows = [];
     for(let i = 0; i < data.length; i+= width) {
@@ -18,7 +27,7 @@ import KeyValue from './KeyValue';
       </div>
     );
   }
-  _createInput = (field, index) => {
+  _createInput = (field:Object, index:number) => {
     const {category, standardwidth} = this.props;
     return (
       <KeyValue
@@ -31,6 +40,7 @@ import KeyValue from './KeyValue';
   }
 }
 KeyValues.defaultProps = {
+  category:'',
   fieldtype:"text",
   title:"",
   classes:"",

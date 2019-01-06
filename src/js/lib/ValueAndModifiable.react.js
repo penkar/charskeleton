@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import {observer} from 'mobx-react';
 import CharacterState from '../state/CharacterState';
@@ -5,7 +6,7 @@ import CharacterState from '../state/CharacterState';
 type Props = {
   title:String,
   value:Number,
-  modifier:Any,
+  modifier:?Any,
   specialized:Boolean,
   formula:String,
 }
@@ -32,11 +33,11 @@ export default class ValueAndModifiable extends React.Component<Props, {}> {
       </div>
     );
   }
-  _modChange = ({target}) => {
+  _modChange = ({target}:Object) => {
     const {value} = target, {category, index, disabled} = this.props;
     CharacterState.update(value, index, category, 'modifier');
   }
-  _valueChange = ({target}) => {
+  _valueChange = ({target}:Object) => {
     const {value} = target, {category, index, disabled} = this.props;
     CharacterState.update(value, index, category, 'value');
   }

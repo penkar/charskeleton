@@ -21,7 +21,7 @@ type State = {
 @observer class Input extends React.Component<Props, State> {
   constructor(props:Object) {
     super(props);
-    this.state = {focused:'false'};
+    this.state = {focused:false};
   }
   render() {
     const {classes, value, placeholder, disabled, raiseLabel, width, suggestions} = this.props, {focused} = this.state;
@@ -66,7 +66,7 @@ Input.defaultProps = {
   value:"",
   classes:"",
   disabled:false,
-  raiseLabel:true,
+  raiseLabel:false,
   id:``,
   suggestions:[],
 }

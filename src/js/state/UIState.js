@@ -1,3 +1,4 @@
+// @flow
 import {observable, action} from 'mobx'
 import HashUtilities from '../utilities';
 
@@ -6,8 +7,8 @@ class UIState {
     this.hash = HashUtilities.hashToJson();
     document.addEventListener('hashchange', this.hashChange)
   }
-  @observable menu:Boolean = false;
-  @observable signedin:Boolean = false;
+  @observable menu:boolean = false;
+  @observable signedin:boolean = false;
   
   @observable hash:Object = {};
   @action hashChange() {

@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import ValueAndModifiable from './ValueAndModifiable';
 import {observer} from 'mobx-react';
@@ -5,7 +6,7 @@ import {observer} from 'mobx-react';
 type Props = {
   width:Number,
   alignment:String,
-  data:String,
+  data:Array<string>,
   category:String,
   standardwidth:String,
 }
@@ -17,7 +18,7 @@ type Props = {
     for(let i = 0; i < data.length; i+= width) {
       rows.push(
         <div className={`container ${alignment}`} key={i}>
-          { data.slice(i,i+ width).map((field, index) => this._createInput(field, index + i)) }
+          { data.slice(i,i+ width).map((field, index:number) => this._createInput(field, index + i)) }
         </div>
       );
     }

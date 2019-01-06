@@ -1,9 +1,22 @@
+// @flow
 import React from 'react';
 import {observer} from 'mobx-react';
 import CharacterState from '../state/CharacterState';
+type Props = {
+  classes:string,
+  title:string,
+  fieldtype:string,
+  value:string|number,
+  disabled:boolean,
+  index:number,
+  category:string,
+}
+type State = {
+  focused:boolean,
+}
 
-export default @observer class KeyValue extends React.Component {
-  constructor(props) {
+export default @observer class KeyValue extends React.Component<Props, State> {
+  constructor(props:Object) {
     super(props)
     this.state = {focused:false}
   }
@@ -22,8 +35,8 @@ export default @observer class KeyValue extends React.Component {
       </div>
     );
   }
-  _change = ({target}) => {
-    const {value} = target, {category, index, disabled} = this.props;
+  _change = ({target}:Object) => {
+    const value = target.value, {category, index, disabled} = this.props;
     CharacterState.update(value, index, category, 'value');
   }
   _focus = () => this.setState({focused: true});

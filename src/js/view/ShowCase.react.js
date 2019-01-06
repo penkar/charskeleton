@@ -4,10 +4,10 @@ import {observer} from 'mobx-react';
 import CharacterState from '../state/CharacterState';
 import Components from '../lib/index.js';
 
-export default @observer class ShowCase extends React.Component {
+type Props = {}
+export default @observer class ShowCase extends React.Component<Props> {
   render() {
     const charInfo = CharacterState.characterInfo;
-    window.ccc = charInfo
     return (
       <div className="ShowCase">
         { charInfo.map((category, i) =>
