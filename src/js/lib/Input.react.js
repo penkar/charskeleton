@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import {observer} from 'mobx-react';
+import cn from 'classnames';
 import CharacterState from '../state/CharacterState';
 type Props = {
   suggestions:Array<string>,

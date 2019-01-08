@@ -2,38 +2,30 @@
 import React from 'react';
 import {observer} from 'mobx-react';
 import TextArea from './TextArea';
+import type {ContainerProps} from '../types.js';
 
-type Props = {
-  alignment:string,
-  category:string,
-  data:Array<Object>,
-  maptype:string,
-  standardwidth:string,
-  width:number,
-}
-type State = {}
-@observer class TextAreas extends React.Component<Props, State> {
+@observer class TextAreas extends React.Component<ContainerProps> {
   render() {
-    const {alignment, standardwidth, data, width} = this.props, rows = [];
+    const {alignment, styleWidth, data, width} = this.props, rows = [];
     for(let i = 0; i < data.length; i+= width) {
       rows.push(
-        <div className={`container ${alignment}`} key={i}>
+        <div className={`${alignment}`} key={i}>
           { data.slice(i,i+ width).map((field, index) => this._createInput(field, index + i)) }
         </div>
       );
     }
     return (
-      <div className={`TextAreas ${standardwidth ? standardwidth : ""} ${alignment ? alignment : ""}`}>
+      <div className={`TextAreas container ${styleWidth} ${alignment}`}>
         { rows }
       </div>
     );
   }
   _createInput = (field:Object, index:number) => {
-    const {category, standardwidth} = this.props;
+    const {category, styleWidth} = this.props;
     return (
       <TextArea
         {...field}
-        width={standardwidth}
+        width={styleWidth}
         key={index}
         category={category}
         index={index}/>
@@ -41,11 +33,12 @@ type State = {}
   }
 }
 TextAreas.defaultProps = {
-  alignment:"",
-  category:"",
+  alignment:'row',
+  category:'textareas',
   data:[],
-  maptype:"",
-  standardwidth:"",
+  maptype:'',
+  orientation:'horizontal',
+  styleWidth:'fifth',
   width:5,
 }
 export default TextAreas;

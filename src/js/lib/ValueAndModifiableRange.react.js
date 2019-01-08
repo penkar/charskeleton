@@ -2,16 +2,9 @@
 import React from 'react';
 import ValueAndModifiable from './ValueAndModifiable';
 import {observer} from 'mobx-react';
+import type {ContainerProps} from '../types.js';
 
-type Props = {
-  width:Number,
-  alignment:String,
-  data:Array<string>,
-  category:String,
-  standardwidth:String,
-}
-
-@observer class ValueAndModifiableRange extends React.Component<Props> {
+@observer class ValueAndModifiableRange extends React.Component<ContainerProps> {
   render() {
     const {width, alignment, data} = this.props;
     const rows = [];
@@ -24,24 +17,23 @@ type Props = {
     }
 
     return (
-      <div className={`ValueAndModifiableRange ${alignment}`}>
+      <div className={`ValueAndModifiableRange container ${alignment}`}>
         { rows }
       </div>
     )
   }
   _createInput = (field:String, index:String) => {
-    const {category, standardwidth} = this.props;
-    return <ValueAndModifiable {...field} width={standardwidth} key={index} category={category} index={index}/>
+    const {category, styleWidth} = this.props;
+    return <ValueAndModifiable {...field} width={styleWidth} key={index} category={category} index={index}/>
   }
 }
 ValueAndModifiableRange.defaulProps = {
-  title:"",
-  classes:"",
-  specialized:"",
-  formula:"",
-  value:10,
-  modifier:null,
-  specialized:false,
-  id:"valueandmodifiablerange",
+  alignment:'row',
+  category:'textareas',
+  data:[],
+  maptype:'',
+  orientation:'horizontal',
+  styleWidth:'fifth',
+  width:5,
 }
 export default ValueAndModifiableRange

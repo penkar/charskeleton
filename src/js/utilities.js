@@ -11,7 +11,7 @@ function hashToJson():Object {
 
 function jsonToHash(json:{[String]:String}):string {
   const currentURL:Object = hashToJson(), searchString = [];
-  Object.entries(json).forEach(([key, value]:Array) => {
+  Object.entries(json).forEach(([key, value]) => {
     searchString.push(`${key}=${value}`);
   });
   return `#${searchString.join("&")}`;

@@ -12,14 +12,13 @@ import KeyValues from '../lib/KeyValues';
 type State = {
   key:string,
 }
-
 export default class Library extends React.Component<{}, State> {
   constructor(props:Object) {
     super(props);
-    this.state = { key:'textareas', };
+    this.state = { key:'input'};
   }
   componentWillMount() {
-    CharacterState.setLibraryCharacterInfo(textareas);
+    CharacterState.setLibraryCharacterInfo(input);
   }
   render() {
     return (
@@ -75,13 +74,13 @@ export default class Library extends React.Component<{}, State> {
   }
 }
 
-
 const textareas = {
   maptype:'TextAreas', /* */
-  width:5, /* */
-  standardwidth:'fifth',  /* */
-  category:'textareas',
+  orientation:'horizontal',
   alignment:'row',
+  width:5, /* */
+  styleWidth:'fifth',  /* */
+  category:'textareas',
   data:[{
     title:'Personality Traits',
     placeholder:'',
@@ -101,10 +100,11 @@ const textareas = {
   },],
 }, input = {
   maptype:'InputFieldContainer', /* Name of the Field that will be used (Will point to sub Inputs.) */
-  width:5, /* How many fields will appear in one row or column. */
-  standardwidth:'fifth', /* TODO: Make something more extensible than set CSS for widths. */
-  category:'basicinfo', /* KeyName for this field. Should not be repeated. */
+  orientation:'horizontal',
   alignment:'row', /* Alignment for the row content (row or column) */
+  width:5, /* How many fields will appear in one row or column. */
+  styleWidth:'fifth', /* TODO: Make something more extensible than set CSS for widths. */
+  category:'basicinfo', /* KeyName for this field. Should not be repeated. */
   data:[{
     placeholder:"Character Name",
     value:"Light Scratch",
@@ -135,11 +135,12 @@ const textareas = {
     value:"",
   }],
 }, valuemodifiable = {
-  width:6,
-  standardwidth:'fifth',
-  category:'abilities',
   maptype:'ValueAndModifiableRange',
+  orientation:'horizontal',
   alignment:'row',
+  width:6,
+  styleWidth:'fifth',
+  category:'abilities',
   data:[{
     title:"Strength",
     value:8,
@@ -184,11 +185,12 @@ const textareas = {
     formula:"Math.floor((X - 10) / 2)",
   }]
 }, keyvalues = {
-  width:2,
-  category:'inspirations',
   maptype:'KeyValues',
-  standardwidth:'fifth',
+  orientation:'horizontal',
   alignment:'col',
+  width:2,
+  styleWidth:'fifth',
+  category:'inspirations',
   data:[{
     title:"Inspiration",
     value:0,

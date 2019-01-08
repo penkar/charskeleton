@@ -2,15 +2,9 @@
 import React from 'react';
 import {observer} from 'mobx-react';
 import Input from './Input';
+import type {ContainerProps} from '../types.js';
 
-type Props = {
-  alignment:string,
-  category:string,
-  data:Array<Object>,
-  standardwidth:string,
-  width:string,
-}
-@observer class InputFieldContainer extends React.Component<Props> {
+@observer class InputFieldContainer extends React.Component<ContainerProps> {
   render() {
     const {width, alignment, data} = this.props;
     const rows = [];
@@ -23,22 +17,24 @@ type Props = {
     }
 
     return (
-      <div className={`InputFieldContainer ${alignment}`}>
+      <div className={`InputFieldContainer container ${alignment}`}>
         { rows }
       </div>
     )
   }
   _createInput = (field:Object, index:number) => {
-    const {category, standardwidth} = this.props;
-    return <Input {...field} width={standardwidth} key={index} category={category} index={index}/>
+    const {category, styleWidth} = this.props;
+    return <Input {...field} width={styleWidth} key={index} category={category} index={index}/>
   }
 }
 InputFieldContainer.defaultProps = {
-  alignment:"",
-  category:"",
+  alignment:'row',
+  category:'textareas',
   data:[],
-  standardwidth:"",
-  width:"",
+  maptype:'',
+  orientation:'horizontal',
+  styleWidth:'fifth',
+  width:5,
 }
 
 export default InputFieldContainer

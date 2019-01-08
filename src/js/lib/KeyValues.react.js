@@ -2,18 +2,11 @@
 import React from 'react';
 import {observer} from 'mobx-react';
 import KeyValue from './KeyValue';
-type Props = {
-  alignment:string,
-  category:string,
-  data:Array<Object>,
-  width:string,
-  standardwidth:string,
-  value:number,
-}
+import type {ContainerProps} from '../types.js';
 
-@observer class KeyValues extends React.Component<Props> {
+@observer class KeyValues extends React.Component<ContainerProps> {
   render() {
-    const {alignment, standardwidth, data, width} = this.props, rows = [];
+    const {alignment, styleWidth, data, width} = this.props, rows = [];
     for(let i = 0; i < data.length; i+= width) {
       rows.push(
         <div className={`container ${alignment}`} key={i}>
@@ -22,17 +15,17 @@ type Props = {
       );
     }
     return (
-      <div className={`KeyValues ${standardwidth ? standardwidth : ""} ${alignment ? alignment : ""}`}>
+      <div className={`KeyValues container ${styleWidth} ${alignment}`}>
         { rows }
       </div>
     );
   }
   _createInput = (field:Object, index:number) => {
-    const {category, standardwidth} = this.props;
+    const {category, styleWidth} = this.props;
     return (
       <KeyValue
         {...field}
-        width={standardwidth}
+        width={styleWidth}
         key={index}
         category={category}
         index={index}/>
@@ -40,12 +33,12 @@ type Props = {
   }
 }
 KeyValues.defaultProps = {
-  category:'',
+  alignment:'row',
+  category:'textareas',
   data:[],
-  fieldtype:"text",
-  title:"",
-  classes:"",
-  value:0,
-  id:"keyavlues",
+  maptype:'',
+  orientation:'horizontal',
+  styleWidth:'fifth',
+  width:5,
 }
 export default KeyValues;

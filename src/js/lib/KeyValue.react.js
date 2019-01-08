@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import {observer} from 'mobx-react';
+import cn from 'classnames';
 import CharacterState from '../state/CharacterState';
 type Props = {
   classes:string,
@@ -21,10 +22,11 @@ export default @observer class KeyValue extends React.Component<Props, State> {
     this.state = {focused:false}
   }
   render() {
+    const focused = this.state.focused;
     return (
       <div className={`KeyValue ${this.props.classes}`}>
         <div className="title">{this.props.title}</div>
-        <div className={`value ${this.state.focused ? "focused" : ""}`}>
+        <div className={cn('value', {focused})}>
           <input
             type={this.props.fieldtype}
             onFocus={this._focus}

@@ -4,11 +4,11 @@ import {observer} from 'mobx-react';
 import Fields from './index';
 
 type Props = {
-  category:String,
-  classes:String,
-  maptype:String,
-  standardwidth:String,
-  alignment:String,
+  category:string,
+  classes:string,
+  maptype:string,
+  styleWidth:string,
+  alignment:string,
   data:Array<Object>,
 }
 
