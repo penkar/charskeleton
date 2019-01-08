@@ -1,6 +1,37 @@
 .TextAreas {
   display: inline-flex;
 }
-.TextArea {
 
+.TextArea {
+  margin:4px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+
+  .title {
+    font-size: 14px;
+    width: 100%;
+    color: var(--primary);
+    z-index: 3;
+  }
+  .value {
+    padding: 6px 12px;
+    z-index: 2;
+    width: 100%;
+    min-height: 40px;
+    &.textarea {
+      background: transparent;
+      font-family: monospace;
+      width: 4ch;
+      border: 0px;
+    }
+    border: 2px solid var(--primary);
+    border-bottom: 3px solid var(--primary);
+    &.focused {
+      border: 2px solid var(--light-primary);
+      border-bottom: 3px solid var(--light-primary);
+    }
+  }
 }

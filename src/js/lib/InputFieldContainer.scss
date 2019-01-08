@@ -20,11 +20,6 @@
   border: solid 1px black;
   margin: 6px;
 
-  &.full {width: 80vw;}
-  &.half {width: 40vw;}
-  &.third {width: 22vw;}
-  &.fifth {width: 14vw;}
-
   &.disabled {
     background-color: var(--light-gray);
   }

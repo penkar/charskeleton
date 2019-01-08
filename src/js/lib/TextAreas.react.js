@@ -23,7 +23,7 @@ type State = {}
       );
     }
     return (
-      <div className={`KeyValues ${standardwidth ? standardwidth : ""} ${alignment ? alignment : ""}`}>
+      <div className={`TextAreas ${standardwidth ? standardwidth : ""} ${alignment ? alignment : ""}`}>
         { rows }
       </div>
     );
@@ -40,7 +40,6 @@ type State = {}
     )
   }
 }
-
 TextAreas.defaultProps = {
   alignment:"",
   category:"",

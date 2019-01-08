@@ -16,11 +16,10 @@ type State = {
 export default class Library extends React.Component<{}, State> {
   constructor(props:Object) {
     super(props);
-    window.char = CharacterState;
-    this.state = { key:'keyvalues', };
+    this.state = { key:'textareas', };
   }
   componentWillMount() {
-    CharacterState.setLibraryCharacterInfo(keyvalues);
+    CharacterState.setLibraryCharacterInfo(textareas);
   }
   render() {
     return (
@@ -28,6 +27,7 @@ export default class Library extends React.Component<{}, State> {
         <NavMenu>
           <a onClick={()=>this._swapKey('input')}>Inputs</a>
           <a onClick={()=>this._swapKey('keyvalues')}>Key - Values</a>
+          <a onClick={()=>this._swapKey('textareas')}>Text Areas</a>
           <a onClick={()=>this._swapKey('valueandmodifiable')}>Value and Modifiable</a>
           <a onClick={()=>this._swapKey('styleparams')}>Style Parameters</a>
         </NavMenu>
