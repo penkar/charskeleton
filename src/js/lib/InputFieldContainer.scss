@@ -2,19 +2,10 @@
   display: inline-flex;
   flex-direction: column;
   width: 100%;
-  
-  .container.row {
-    display: flex;
-    flex-direction: row;
-  }
-  .container.col {display: flex;
-    flex-direction: column;
-  }
 }
 
-
 .Input {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   position: relative;
   border: solid 1px black;

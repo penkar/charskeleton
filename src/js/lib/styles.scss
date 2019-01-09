@@ -3,6 +3,19 @@
 .third {width: 22vw;}
 .fifth {width: 14vw;}
 
-.container {
-  
+
+.contaienr {
+  display: flex;
+}
+.container.row {
+  flex-direction: column;
+  .container {
+    flex-direction: row
+  }
+}
+.container.col {
+  flex-direction: row;
+  .container {
+    flex-direction: column;
+  }
 }

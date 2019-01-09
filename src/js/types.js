@@ -6,3 +6,8 @@ export type ContainerProps = {
   styleWidth:string,
   width:number,
 }
+export type ComponentProps = {
+  category:string,
+  index:number,
+  width:string,
+}

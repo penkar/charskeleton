@@ -24,11 +24,12 @@ import type {ContainerProps} from '../types.js';
     const {category, styleWidth} = this.props;
     return (
       <TextArea
-        {...field}
-        width={styleWidth}
-        key={index}
         category={category}
-        index={index}/>
+        index={index}
+        key={index}
+        width={styleWidth}
+        {...field}
+      />
     )
   }
 }

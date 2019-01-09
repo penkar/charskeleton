@@ -15,10 +15,10 @@ type State = {
 export default class Library extends React.Component<{}, State> {
   constructor(props:Object) {
     super(props);
-    this.state = { key:'input'};
+    this.state = { key:'valuemodifiable'};
   }
   componentWillMount() {
-    CharacterState.setLibraryCharacterInfo(input);
+    CharacterState.setLibraryCharacterInfo(valuemodifiable);
   }
   render() {
     return (
@@ -108,31 +108,40 @@ const textareas = {
   data:[{
     placeholder:"Character Name",
     value:"Light Scratch",
+    raiseLabel:true,
   },{
     placeholder:"Class & Level",
     value:"Paladin",
     suggestions:["Paladin", "Ranger", "Rogue", "Wizard", "Monk", "Sorcerer", "Barbarian"],
+    raiseLabel:true,
   },{
     placeholder:"Background",
     value:"",
+    raiseLabel:true,
   },{
     placeholder:"Player Name",
     value:"",
+    raiseLabel:true,
   },{
     placeholder:"Faction",
     value:"",
+    raiseLabel:true,
   },{
     placeholder:"Race",
     value:"",
+    raiseLabel:true,
   },{
     placeholder:"Alignment",
     value:"",
+    raiseLabel:true,
   },{
     placeholder:"EXP",
     value:"",
+    raiseLabel:true,
   },{
     placeholder:"DCI Number",
     value:"",
+    raiseLabel:true,
   }],
 }, valuemodifiable = {
   maptype:'ValueAndModifiableRange',

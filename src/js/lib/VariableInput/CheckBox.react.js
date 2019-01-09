@@ -4,13 +4,13 @@ import cn from 'classnames';
 type Props = {
   callback:Function,
   id:string,
-  value:string,
+  value:boolean,
 }
 type State = {
   selected:boolean,
 }
 
-export default class CheckBox extends React.Component<Props, State> {
+class CheckBox extends React.Component<Props, State> {
   constructor(props:Object) {
     super(props)
     this.state={selected:true}
@@ -22,6 +22,12 @@ export default class CheckBox extends React.Component<Props, State> {
         <i className='material-icons'>done</i>
         <input type="checkbox" value={this.state.selected} onClick={()=>this.setState({selected:!this.state.selected})}/>
       </div>
-    )
+    );
   }
 }
+CheckBox.defaultProps = {
+  callback:()=>null,
+  id:"",
+  value:false,
+}
+export default CheckBox

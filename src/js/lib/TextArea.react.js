@@ -3,12 +3,10 @@ import React from 'react';
 import cn from 'classnames';
 import {observer} from 'mobx-react';
 import CharacterState from '../state/CharacterState';
-
+import type {ComponentProps} from '../types';
 type Props = {
-  category:string,
-  index:number,
-  width:string,
   title:string,
+  ...ComponentProps,
 }
 type State = {
   focused:boolean;

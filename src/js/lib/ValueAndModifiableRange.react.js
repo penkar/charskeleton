@@ -15,16 +15,23 @@ import type {ContainerProps} from '../types.js';
         </div>
       );
     }
-
     return (
       <div className={`ValueAndModifiableRange container ${alignment}`}>
         { rows }
       </div>
     )
   }
-  _createInput = (field:String, index:String) => {
+  _createInput = (field:Object, index:number) => {
     const {category, styleWidth} = this.props;
-    return <ValueAndModifiable {...field} width={styleWidth} key={index} category={category} index={index}/>
+    return (
+      <ValueAndModifiable
+        category={category}
+        index={index}
+        key={index}
+        width={styleWidth}
+        {...field}
+        />
+    )
   }
 }
 ValueAndModifiableRange.defaulProps = {

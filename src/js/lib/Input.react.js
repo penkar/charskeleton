@@ -27,7 +27,7 @@ type State = {
   render() {
     const {classes, value, placeholder, disabled, raiseLabel, width, suggestions} = this.props, {focused} = this.state;
     return (
-      <div className={`Input ${width ? width : ""} ${disabled ? "disabled" : ""} ${classes !== undefined ? classes : ""} ${value ? "active" : ""} ${focused ? "focused" : ""}`}>
+      <div className={cn('Input', width, disabled, classes, {active:value, focused})}>
         <input
           disabled={disabled}
           type="text"
@@ -61,7 +61,6 @@ type State = {
     if(!disabled) CharacterState.update(target.value, index, category, 'value');
   }
 }
-
 Input.defaultProps = {
   placeholder:"",
   value:"",
@@ -71,5 +70,4 @@ Input.defaultProps = {
   id:``,
   suggestions:[],
 }
-
 export default Input

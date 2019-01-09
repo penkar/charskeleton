@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import {observer} from 'mobx-react';
-import KeyValue from './KeyValue';
+import KeyValue from './KeyValue.react.js';
 import type {ContainerProps} from '../types.js';
 
 @observer class KeyValues extends React.Component<ContainerProps> {
@@ -24,11 +24,12 @@ import type {ContainerProps} from '../types.js';
     const {category, styleWidth} = this.props;
     return (
       <KeyValue
-        {...field}
+        category={category}
+        index={index}
         width={styleWidth}
         key={index}
-        category={category}
-        index={index}/>
+        {...field}
+      />
     )
   }
 }

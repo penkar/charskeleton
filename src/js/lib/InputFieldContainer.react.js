@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import {observer} from 'mobx-react';
-import Input from './Input';
+import Input from './Input.react.js';
 import type {ContainerProps} from '../types.js';
 
 @observer class InputFieldContainer extends React.Component<ContainerProps> {
@@ -24,7 +24,15 @@ import type {ContainerProps} from '../types.js';
   }
   _createInput = (field:Object, index:number) => {
     const {category, styleWidth} = this.props;
-    return <Input {...field} width={styleWidth} key={index} category={category} index={index}/>
+    return (
+      <Input
+        category={category}
+        index={index}
+        key={index}
+        width={styleWidth}
+        {...field}
+      />
+    );
   }
 }
 InputFieldContainer.defaultProps = {

@@ -10,7 +10,7 @@
     bottom: 0px;
     left: 0px;
     right: 0px;
-    border: solid 1.5px var(--teal);
+    border: solid 1.5px var(--primary);
     border-radius: 4px;
     background-color: transparent;
     z-index: 2;
@@ -23,7 +23,7 @@
   }
   &.selected {
     .cover {
-      background-color: var(--light-teal);
+      background-color: var(--light-primary);
     }
     .material-icons {
       opacity: 1;
