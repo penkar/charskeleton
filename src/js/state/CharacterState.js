@@ -5,13 +5,17 @@ import {observable, action, computed} from 'mobx';
 class CharacterState {
   @observable name:string = "";
   @observable characterInfo:Array<Object> = [];
-  @action update = (value:string, idx:number, category:string, field:string) => {
+  skeleton:Object = {};
+
+  @action update = ({value, idx, category, field}:Object) => {
     const parameter = this.characterInfo.find(char => char.category === category);
-    console.log('update', value, idx, category, field);
     parameter.data[idx][field] = value;
   }
-  @action setLibraryCharacterInfo = (snippet:Object) => {
+  @action setLibraryCharacterInfo(snippet:Object) {
     this.characterInfo = [snippet];
+  }
+  @action setSkeleton(skeleton:Object) {
+    this.skeleton = skeleton;
   }
   @computed get getLibraryCharacterInfo() {
     return this.characterInfo[0] || {};

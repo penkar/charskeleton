@@ -19,6 +19,7 @@ export default class Library extends React.Component<{}, State> {
   }
   componentWillMount() {
     CharacterState.setLibraryCharacterInfo(valuemodifiable);
+    CharacterState.setSkeleton(Skeleton);
   }
   render() {
     return (
@@ -27,7 +28,7 @@ export default class Library extends React.Component<{}, State> {
           <a onClick={()=>this._swapKey('input')}>Inputs</a>
           <a onClick={()=>this._swapKey('keyvalues')}>Key - Values</a>
           <a onClick={()=>this._swapKey('textareas')}>Text Areas</a>
-          <a onClick={()=>this._swapKey('valueandmodifiable')}>Value and Modifiable</a>
+          <a onClick={()=>this._swapKey('valuemodifiable')}>Value and Modifiable</a>
           <a onClick={()=>this._swapKey('styleparams')}>Style Parameters</a>
         </NavMenu>
 
@@ -54,12 +55,13 @@ export default class Library extends React.Component<{}, State> {
   _content = () => {
     let content, title;
     const charprops = CharacterState.getLibraryCharacterInfo;
+    console.log(this.state.key);
     switch (this.state.key) {
       case "textareas":
         content = <TextAreas {...charprops}/>, title = "Text Areas"; break;
       case "input":
         content = <InputFieldContainer {...charprops}/>, title = "Input"; break;
-      case "valueandmodifiable":
+      case "valuemodifiable":
         content = <ValueAndModifiableRange {...charprops}/>, title = "Value Modifiable"; break;
       case "keyvalues":
       default:
@@ -71,6 +73,14 @@ export default class Library extends React.Component<{}, State> {
         { content }
       </Parameters>
     )
+  }
+}
+
+class Skeleton {
+  strength:number = 10;
+  strengthModifier:?number = null
+  strMod = () => {
+    return this.strengthModifier || Math.floor((this.strength - 10) / 2);
   }
 }
 

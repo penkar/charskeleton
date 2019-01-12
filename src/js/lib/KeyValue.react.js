@@ -8,6 +8,7 @@ type Props = {
   classes:string,
   title:string,
   fieldtype:string,
+  id:?string,
   value:string|number,
   disabled:boolean,
   ...ComponentProps,
@@ -39,7 +40,7 @@ type State = {
   }
   _change = ({target}:Object) => {
     const value = target.value, {category, index, disabled} = this.props;
-    CharacterState.update(value, index, category, 'value');
+    CharacterState.update({value, ids:index, category, field:'value'});
   }
   _focus = () => this.setState({focused: true});
   _blur = () => setTimeout(()=>this.setState({focused:false}), 200);
@@ -47,6 +48,7 @@ type State = {
 KeyValue.defaultProps = {
   classes:"",
   title:"",
+  id:"",
   fieldtype:"",
   value:"",
   disabled:false,

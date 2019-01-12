@@ -50,6 +50,14 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+.row {
+  display: inline-flex;
+  flex-direction: row;
+}
+.col {
+  display: inline-flex;
+  flex-direction: column;
+}
 
 textarea, select, input, button { outline: none; }
 * {

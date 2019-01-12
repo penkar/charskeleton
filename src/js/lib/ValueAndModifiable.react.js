@@ -9,6 +9,7 @@ type Props = {
   disabled:boolean,
   formula:string,
   fieldType:string,
+  id:?string,
   title:string,
   value:number,
   modifier:?any,
@@ -17,34 +18,38 @@ type Props = {
 }
 
 @observer class ValueAndModifiable extends React.Component<Props, {}> {
-  render() {console.log(this.props);
+  render() {
     const {title, value, modifier, specialized, formula} = this.props;
     return (
-      <div className={`ValueAndModifiable`}>
-        <CheckBox />
+      <div className={`ValueAndModifiable col`}>
         <div className="title">{title}</div>
-        <div className="value">
-          <input
-            type="number"
-            onChange={this._valueChange}
-            value={value}></input>
-        </div>
-        <div className={`modifier ${modifier === null ? "null" : ""}`}>
-          <input
-            type="number"
-            onChange={this._modChange}
-            value={modifier || eval(formula.replace('X', value))}/>
+        <div className="row">
+          <CheckBox />
+          <div className="col">
+            <div className="value">
+              <input
+                type="number"
+                onChange={this._valueChange}
+                value={value}></input>
+            </div>
+            <div className={`modifier ${modifier === null ? "null" : ""}`}>
+              <input
+                type="number"
+                onChange={this._modChange}
+                value={modifier || eval(formula.replace('X', value))}/>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
   _modChange = ({target}:Object) => {
     const {value} = target, {category, index, disabled} = this.props;
-    CharacterState.update(value, index, category, 'modifier');
+    CharacterState.update({value, idx:index, category, field:'modifier'});
   }
   _valueChange = ({target}:Object) => {
     const {value} = target, {category, index, disabled} = this.props;
-    CharacterState.update(value, index, category, 'value');
+    CharacterState.update({value, idx:index, category, field:'value'});
   }
 }
 ValueAndModifiable.defaultProps = {
@@ -52,6 +57,7 @@ ValueAndModifiable.defaultProps = {
   formula:"",
   fieldType:"",
   title:"",
+  id:"",
   value:10,
   modifier:0,
   specialized:false,

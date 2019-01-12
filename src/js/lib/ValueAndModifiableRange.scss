@@ -4,11 +4,19 @@
 
 .ValueAndModifiable {
   display: flex;
-  flex-direction: column;
+  flex-direction: col;
   align-items: center;
   width: 5rem;
   position: relative;
   height: 4rem;
+  >.row {
+    display: flex;
+    flex-direction: row;
+  }
+  .CheckBox {
+    top: 1.25rem;
+    left: -4px;
+  }
 
   input {
     font-family: monospace;

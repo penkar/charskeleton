@@ -29,6 +29,6 @@ export default class RadioInput extends React.Component<Props, State> {
   }
   _onClick = () => {
     const value = !this.props.value, {idx, category, field} = this.props;
-    CharacterState.update(value, idx, category, field)
+    CharacterState.update({value, idx, category, field});
   }
 }

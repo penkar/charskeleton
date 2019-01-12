@@ -9,7 +9,7 @@ type Props = {
   raiseLabel:boolean,
   category:string,
   classes:string,
-  id:string,
+  id:?string,
   index:number,
   placeholder:string,
   value:string,

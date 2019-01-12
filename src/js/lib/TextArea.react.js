@@ -6,6 +6,7 @@ import CharacterState from '../state/CharacterState';
 import type {ComponentProps} from '../types';
 type Props = {
   title:string,
+  id:?string,
   ...ComponentProps,
 }
 type State = {
@@ -36,12 +37,13 @@ type State = {
   _blur = () => this.setState({focused:false});
   _change = (event:Object) => {
     const value = event.target.value, {index, category} = this.props;
-    CharacterState.update(value, index, category, 'value');
+    CharacterState.update({value, idx:index, category, field:'value'});
   }
 }
 TextArea.defaultProps = {
   category:"",
   index:0,
+  id:"",
   width:"",
   title:"",
 }
