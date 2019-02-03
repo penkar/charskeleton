@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import CharacterState from '../state/CharacterState';
 
 type Props = {
   children:Element,
@@ -20,7 +19,6 @@ export default class Parameters extends React.Component<Props> {
         <div>
           <pre>
             <code>
-              { JSON.stringify(CharacterState.getLibraryCharacterInfo, null, 2) }
             </code>
           </pre>
         </div>

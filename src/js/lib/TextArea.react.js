@@ -1,8 +1,7 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
-import {observer} from 'mobx-react';
-import CharacterState from '../state/CharacterState';
+
 import type {ComponentProps} from '../types';
 type Props = {
   title:string,
@@ -12,7 +11,7 @@ type Props = {
 type State = {
   focused:boolean;
 }
-@observer class TextArea extends React.Component<Props, State> {
+class TextArea extends React.Component<Props, State> {
   constructor(props:Object) {
     super(props);
     this.state = {
@@ -37,7 +36,6 @@ type State = {
   _blur = () => this.setState({focused:false});
   _change = (event:Object) => {
     const value = event.target.value, {index, category} = this.props;
-    CharacterState.update({value, idx:index, category, field:'value'});
   }
 }
 TextArea.defaultProps = {

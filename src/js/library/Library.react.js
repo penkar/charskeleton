@@ -2,7 +2,6 @@
 import React from 'react';
 import Parameters from './Parameters';
 
-import CharacterState from '../state/CharacterState';
 import NavMenu from '../view/NavMenu';
 import InputFieldContainer from '../lib/InputFieldContainer';
 import TextAreas from '../lib/TextAreas';
@@ -16,10 +15,6 @@ export default class Library extends React.Component<{}, State> {
   constructor(props:Object) {
     super(props);
     this.state = { key:'valuemodifiable'};
-  }
-  componentWillMount() {
-    CharacterState.setLibraryCharacterInfo(valuemodifiable);
-    CharacterState.setSkeleton(Skeleton);
   }
   render() {
     return (
@@ -40,21 +35,16 @@ export default class Library extends React.Component<{}, State> {
   _swapKey = (key:string) => {
     switch (key) {
       case 'textareas':
-        CharacterState.setLibraryCharacterInfo(textareas); break;
       case 'input':
-        CharacterState.setLibraryCharacterInfo(input); break;
       case 'keyvalues':
-        CharacterState.setLibraryCharacterInfo(keyvalues); break;
       case 'valueandmodifiable':
       default:
-        CharacterState.setLibraryCharacterInfo(valuemodifiable); break;
     }
     this.setState({key}); 
   }
 
   _content = () => {
     let content, title;
-    const charprops = CharacterState.getLibraryCharacterInfo;
     console.log(this.state.key);
     switch (this.state.key) {
       case "textareas":

@@ -1,8 +1,6 @@
 // @flow
 import React from 'react';
-import {observer} from 'mobx-react';
-import cn from 'classnames';
-import CharacterState from '../state/CharacterState';
+
 import type {ComponentProps} from '../types.js';
 type Props = {
   classes:string,
@@ -17,7 +15,7 @@ type State = {
   focused:boolean,
 }
 
-@observer class KeyValue extends React.Component<Props, State> {
+class KeyValue extends React.Component<Props, State> {
   constructor(props:Object) {
     super(props)
     this.state = {focused:false}
@@ -40,7 +38,6 @@ type State = {
   }
   _change = ({target}:Object) => {
     const value = target.value, {category, index, disabled} = this.props;
-    CharacterState.update({value, ids:index, category, field:'value'});
   }
   _focus = () => this.setState({focused: true});
   _blur = () => setTimeout(()=>this.setState({focused:false}), 200);

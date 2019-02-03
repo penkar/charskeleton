@@ -1,10 +1,10 @@
 // @flow
 import React from 'react';
 import ValueAndModifiable from './ValueAndModifiable';
-import {observer} from 'mobx-react';
+
 import type {ContainerProps} from '../types.js';
 
-@observer class ValueAndModifiableRange extends React.Component<ContainerProps> {
+class ValueAndModifiableRange extends React.Component<ContainerProps> {
   render() {
     const {width, alignment, data} = this.props;
     const rows = [];

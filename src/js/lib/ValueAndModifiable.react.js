@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
-import {observer} from 'mobx-react';
-import CharacterState from '../state/CharacterState';
+
 import CheckBox from './VariableInput/CheckBox';
 import type {ComponentProps} from '../types';
 
@@ -17,7 +16,7 @@ type Props = {
   ...ComponentProps,
 }
 
-@observer class ValueAndModifiable extends React.Component<Props, {}> {
+class ValueAndModifiable extends React.Component<Props, {}> {
   render() {
     const {title, value, modifier, specialized, formula} = this.props;
     return (
@@ -45,11 +44,9 @@ type Props = {
   }
   _modChange = ({target}:Object) => {
     const {value} = target, {category, index, disabled} = this.props;
-    CharacterState.update({value, idx:index, category, field:'modifier'});
   }
   _valueChange = ({target}:Object) => {
     const {value} = target, {category, index, disabled} = this.props;
-    CharacterState.update({value, idx:index, category, field:'value'});
   }
 }
 ValueAndModifiable.defaultProps = {

@@ -1,8 +1,6 @@
 // @flow
 import React from 'react';
-import {observer} from 'mobx-react';
-import cn from 'classnames';
-import CharacterState from '../state/CharacterState';
+
 type Props = {
   suggestions:Array<string>,
   disabled:boolean,
@@ -19,7 +17,7 @@ type State = {
   focused:boolean
 }
 
-@observer class Input extends React.Component<Props, State> {
+class Input extends React.Component<Props, State> {
   constructor(props:Object) {
     super(props);
     this.state = {focused:false};
@@ -54,11 +52,9 @@ type State = {
   _onBlur = () => setTimeout(()=>this._onFocus(false), 200);
   _click = (value:string) => {
     const {category, index, disabled} = this.props;
-    CharacterState.update(value, index, category, 'value');
   }
   _changeValue = ({target}:Object) => {
     const {category, index, disabled} = this.props;
-    if(!disabled) CharacterState.update(target.value, index, category, 'value');
   }
 }
 Input.defaultProps = {

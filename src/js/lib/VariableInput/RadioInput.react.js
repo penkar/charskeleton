@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
-import CharacterState from '../../state/CharacterState';
 type Props = {
   value:Boolean,
   idx:String,
@@ -29,6 +28,5 @@ export default class RadioInput extends React.Component<Props, State> {
   }
   _onClick = () => {
     const value = !this.props.value, {idx, category, field} = this.props;
-    CharacterState.update({value, idx, category, field});
   }
 }

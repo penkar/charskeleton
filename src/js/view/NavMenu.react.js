@@ -1,12 +1,12 @@
 // @flow
 import React from 'react';
-import {observer} from 'mobx-react';
+
 import UIState from '../state/UIState';
 type Props = {
   children:Object,
 }
 
-export default @observer class NavMenu extends React.Component<Props> {
+export default class NavMenu extends React.Component<Props> {
   render() {
     const menu = UIState.menu;
     return (

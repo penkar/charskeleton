@@ -1,10 +1,10 @@
 // @flow
 import React from 'react';
-import {observer} from 'mobx-react';
+
 import KeyValue from './KeyValue.react.js';
 import type {ContainerProps} from '../types.js';
 
-@observer class KeyValues extends React.Component<ContainerProps> {
+class KeyValues extends React.Component<ContainerProps> {
   render() {
     const {alignment, styleWidth, data, width} = this.props, rows = [];
     for(let i = 0; i < data.length; i+= width) {

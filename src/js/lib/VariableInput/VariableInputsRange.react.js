@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import {observer} from 'mobx-react';
+
 import Fields from './index';
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
   data:Array<Object>,
 }
 
-export default @observer class VariableInputsRange extends React.Component<Props,{}> {
+export default class VariableInputsRange extends React.Component<Props,{}> {
   render() {
     const data = this.props.data;
     return (
