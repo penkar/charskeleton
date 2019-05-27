@@ -5,6 +5,16 @@ import KeyValue from './KeyValue.react.js';
 import type {ContainerProps} from '../types.js';
 
 class KeyValues extends React.Component<ContainerProps> {
+  static defaultProps = {
+    alignment:'row',
+    category:'textareas',
+    data:[],
+    maptype:'',
+    orientation:'horizontal',
+    styleWidth:'fifth',
+    width:5,
+  }
+
   render() {
     const {alignment, styleWidth, data, width} = this.props, rows = [];
     for(let i = 0; i < data.length; i+= width) {
@@ -33,13 +43,5 @@ class KeyValues extends React.Component<ContainerProps> {
     )
   }
 }
-KeyValues.defaultProps = {
-  alignment:'row',
-  category:'textareas',
-  data:[],
-  maptype:'',
-  orientation:'horizontal',
-  styleWidth:'fifth',
-  width:5,
-}
+
 export default KeyValues;

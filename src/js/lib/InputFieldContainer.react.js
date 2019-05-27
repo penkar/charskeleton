@@ -5,6 +5,15 @@ import Input from './Input.react.js';
 import type {ContainerProps} from '../types.js';
 
 class InputFieldContainer extends React.Component<ContainerProps> {
+  static defaultProps = {
+    alignment:'row',
+    category:'textareas',
+    data:[],
+    maptype:'',
+    orientation:'horizontal',
+    styleWidth:'fifth',
+    width:5,
+  }
   render() {
     const {width, alignment, data} = this.props;
     const rows = [];
@@ -35,14 +44,6 @@ class InputFieldContainer extends React.Component<ContainerProps> {
     );
   }
 }
-InputFieldContainer.defaultProps = {
-  alignment:'row',
-  category:'textareas',
-  data:[],
-  maptype:'',
-  orientation:'horizontal',
-  styleWidth:'fifth',
-  width:5,
-}
+
 
 export default InputFieldContainer

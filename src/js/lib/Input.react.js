@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import cn from 'classnames';
 
 type Props = {
   suggestions:Array<string>,
@@ -18,6 +19,16 @@ type State = {
 }
 
 class Input extends React.Component<Props, State> {
+  static defaultProps = {
+    placeholder:"",
+    value:"",
+    classes:"",
+    disabled:false,
+    raiseLabel:false,
+    id:``,
+    suggestions:[],
+  }
+
   constructor(props:Object) {
     super(props);
     this.state = {focused:false};
@@ -57,13 +68,5 @@ class Input extends React.Component<Props, State> {
     const {category, index, disabled} = this.props;
   }
 }
-Input.defaultProps = {
-  placeholder:"",
-  value:"",
-  classes:"",
-  disabled:false,
-  raiseLabel:false,
-  id:``,
-  suggestions:[],
-}
+
 export default Input

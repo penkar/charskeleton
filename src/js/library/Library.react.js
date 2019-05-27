@@ -1,5 +1,7 @@
 // @flow
 import React from 'react';
+import {connect} from 'react-redux';
+import * as UIActions from '../actions/UIActions';
 import Parameters from './Parameters';
 
 import NavMenu from '../view/NavMenu';
@@ -8,23 +10,40 @@ import TextAreas from '../lib/TextAreas';
 import ValueAndModifiableRange from '../lib/ValueAndModifiableRange';
 import KeyValues from '../lib/KeyValues';
 
-type State = {
-  key:string,
+const mapStateToProps = (state, ownProps) => {
+  return state;
 }
-export default class Library extends React.Component<{}, State> {
+const mapDispatchToActions =  (dispatch, ownProps) => {
+  return ({
+    dispatch,
+    UIActions,
+  });
+}
+
+
+type State = {key:string,}
+type Props = {
+  dispatch:Function,
+  UIActions:Object,
+  UIState:Object,
+  CharacterState:Object,
+}
+
+class Library extends React.Component<Props, State> {
   constructor(props:Object) {
     super(props);
     this.state = { key:'valuemodifiable'};
   }
   render() {
+    const UIAction = this.props.UIActions;
     return (
       <div className="Library">
-        <NavMenu>
-          <a onClick={()=>this._swapKey('input')}>Inputs</a>
-          <a onClick={()=>this._swapKey('keyvalues')}>Key - Values</a>
-          <a onClick={()=>this._swapKey('textareas')}>Text Areas</a>
-          <a onClick={()=>this._swapKey('valuemodifiable')}>Value and Modifiable</a>
-          <a onClick={()=>this._swapKey('styleparams')}>Style Parameters</a>
+        <NavMenu {...this.props.UIState} actions={UIAction}>
+          <a view='input' onClick={UIActions.changeView}>Inputs</a>
+          <a view='keyvalues' onClick={UIActions.changeView}>Key - Values</a>
+          <a view='textareas' onClick={UIActions.changeView}>Text Areas</a>
+          <a view='valuemodifiable' onClick={UIActions.changeView}>Value and Modifiable</a>
+          <a view='styleparams' onClick={UIActions.changeView}>Style Parameters</a>
         </NavMenu>
 
         { this._content() }
@@ -32,39 +51,31 @@ export default class Library extends React.Component<{}, State> {
     );
   }
 
-  _swapKey = (key:string) => {
-    switch (key) {
-      case 'textareas':
-      case 'input':
-      case 'keyvalues':
-      case 'valueandmodifiable':
-      default:
-    }
-    this.setState({key}); 
-  }
-
   _content = () => {
-    let content, title;
-    console.log(this.state.key);
-    switch (this.state.key) {
-      case "textareas":
-        content = <TextAreas {...charprops}/>, title = "Text Areas"; break;
-      case "input":
-        content = <InputFieldContainer {...charprops}/>, title = "Input"; break;
-      case "valuemodifiable":
-        content = <ValueAndModifiableRange {...charprops}/>, title = "Value Modifiable"; break;
-      case "keyvalues":
-      default:
-        content = <KeyValues {...charprops}/>, title = "Value Modifiable"; break;
-    }
+    return null;
+    // let content, title;
+    // console.log(this.state.key);
+    // switch (this.state.key) {
+    //   case "textareas":
+    //     content = <TextAreas {...charprops}/>, title = "Text Areas"; break;
+    //   case "input":
+    //     content = <InputFieldContainer {...charprops}/>, title = "Input"; break;
+    //   case "valuemodifiable":
+    //     content = <ValueAndModifiableRange {...charprops}/>, title = "Value Modifiable"; break;
+    //   case "keyvalues":
+    //   default:
+    //     content = <KeyValues {...charprops}/>, title = "Value Modifiable"; break;
+    // }
 
-    return (
-      <Parameters title={title}>
-        { content }
-      </Parameters>
-    )
+    // return (
+    //   <Parameters title={title}>
+    //     { content }
+    //   </Parameters>
+    // )
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToActions)(Library)
 
 class Skeleton {
   strength:number = 10;

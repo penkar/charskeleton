@@ -1,17 +1,19 @@
 // @flow
 import React from 'react';
-
-import UIState from '../state/UIState';
+import cn from 'classnames';
 type Props = {
+  menu:boolean,
   children:Object,
+  action:Object,
 }
 
 export default class NavMenu extends React.Component<Props> {
   render() {
-    const menu = UIState.menu;
+    const menu = this.props.menu;
+    console.log(this.props);
     return (
       <div
-        className={`NavMenu ${menu ? "open" : ""}`}
+        className={cn(`NavMenu`, {menu})}
         onClick={() => (menu && this._toggleMenu({}))}>
         <div className="relevant">
           <div className="right section">
@@ -24,8 +26,7 @@ export default class NavMenu extends React.Component<Props> {
       </div>
     );
   }
-  _toggleMenu(event:Object){
-    event.stopPropagation && event.stopPropagation();
-    UIState.menu = !UIState.menu;
+  _toggleMenu = () => {
+    this.props.actions.toggleMenu();
   }
 }
